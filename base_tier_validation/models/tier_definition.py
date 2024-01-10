@@ -94,7 +94,8 @@ class TierDefinition(models.Model):
         help="Approval order by the specified sequence number",
     )
     approve_sequence_bypass = fields.Boolean(
-        help="Bypassed (auto validated), if previous tier was validated by same reviewer",
+        help="Bypassed (auto validated), if previous tier was validated "
+        "by same reviewer",
     )
 
     @api.onchange("review_type")
