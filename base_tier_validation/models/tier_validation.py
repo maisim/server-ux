@@ -470,6 +470,8 @@ class TierValidation(models.AbstractModel):
 
     def _check_state_conditions(self, vals):
         self.ensure_one()
+        if self.env.context.get("skip_validation_check"):
+            return False
         return (
             self._check_state_from_condition()
             and vals.get(self._state_field) in self._state_to
